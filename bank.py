@@ -42,14 +42,18 @@ class Accoount:
 class SavingsAccount(Accoount):
     def __init__(self, name, accountNumber, password, type, intrestRate):
         self.intrestRate = intrestRate
+        super().__init__(name, accountNumber, password, 'savings')
+
+    def showInformation(self):
+        print(f"Account Holder Name : {self.name}")
+
+class SpacialAccount(Accoount):
+    def __init__(self, name, accountNumber, password, type):
         super().__init__(name, accountNumber, password, type)
 
 
 
-
-
-myAccount = Accoount("Tasnim Rahman",100012,1234,"savings")
+myAccount = SavingsAccount("Tasnim Rahman",100012,1234,"savings",0.70)
 
 myAccount.depositeAmount(1000)
 print(myAccount.getBalance())
-
